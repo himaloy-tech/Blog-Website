@@ -11,7 +11,7 @@ from django.core.paginator import Paginator
 login = lambda request: render(request, 'login.html')
 logout = lambda request: render(request, 'logout.html')
 signup = lambda request: render(request, 'signup.html')
-
+test = lambda request: render(request, 'test.html')
 def PostList(request):
     post = Post.objects.all()
     return render(request, 'home.html', {"blogs":post})

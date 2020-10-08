@@ -9,6 +9,7 @@
   <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
   <link rel="stylesheet" href="{% static "css/card.css" %}">
   <link rel="stylesheet" href="{% static "css/nav_styles.css" %}">
+  <link rel="stylesheet" href="{% static "css/dropdown.css" %}">
   <!-- <link rel="stylesheet" href="{% static "css/pagination.css" %}"> -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
 
@@ -77,11 +78,13 @@
       <a href="/about">About</a>
     </div>
   </div>
-  <center>
-    <a href="/auth/logout">
-      <button class="logout" onclick="logout()">Logout</button>
-    </a>
-  </center>
+  <dropdown>
+    <input id="toggle1" type="checkbox" checked>
+    <label for="toggle1" class="animate">More<i class="fa fa-list float-right"></i></label>
+    <ul class="animate">
+      <li class="animate" onclick="window.location.href='/auth/logout'">Logout<i class="fa fa-code float-right"></i></li>
+    </ul>
+  </dropdown>
   <center class="your-posts">
     <hr>
     <h1>Your Posts</h1>

@@ -9,4 +9,5 @@ urlpatterns = [
     path('create/post/', views.PostCreate, name='create'),
     path('post/<int:pk>/update/', views.PostUpdateView.as_view(), name='post-update'),
     path("profile", views.profile, name="profile-info"),
+    path('test', views.test, name='test'),
 ]
