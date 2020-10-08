@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="{% static "css/nav_styles.css" %}">
     <link rel="stylesheet" href="{% static "css/card.css" %}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
-    <!-- <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"> -->
     <style>
         .avatar {
             vertical-align: middle;
@@ -50,19 +49,19 @@
             <ul class="nav__links">
                 <li><a href="#">About</a></li>
                 <li><a href="/contact">Contact</a></li>
+                {% if not user.is_authenticated %}
+                <li><a href="/login" style="color:rgb(105, 196, 105)">Login</a></li>
+                <li><a href="/signup" style="color:rgb(105, 196, 105)">Signup</a></li>
+                {% endif %}
             </ul>
         </nav>
-        {% if user.profile.image %}
-        <a href="/profile"><img class="avatar" src="{{user.profile.image.url}}" alt="logo"></a>
-        {% else %}
-        <a href="/login"><img class="avatar" src="media/pics/profile.png" alt="logo"></a>
+        {% if user.is_authenticated %}
+            {% if user.profile.image %}
+            <a href="/profile"><img class="avatar" src="{{user.profile.image.url}}" alt="logo"></a>
+            {% else %}
+            <a href="/profile"><img class="avatar" src="media/pics/profile.png" alt="logo"></a>
+            {% endif %}
         {% endif %}
-        <!-- <a href="/signup">
-            <button id="login" class="inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-black-600 rounded text-lg">Signup</button>
-        </a>
-        <a href="/login">
-            <button id="login" class="inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-black-600 rounded text-lg ml-2">Login</button>
-        </a> -->
         <p class="menu cta">Menu</p>
     </header>
     <div id="mobile__menu" class="overlay">
@@ -75,9 +74,9 @@
     {% for blog in blogs %}
     <div class="blog-item">
       <a href="{% url 'details' blog.postid %}">
-        <!-- <div class="icon">
+        <div class="icon">
           <img src="{{blog.thumbnail.img.url}}" alt="thumbnail">
-        </div> -->
+        </div>
         <div class="content">
           <div class="title">{{blog.title|truncatechars:22}} <span class="blog-date">{{blog.pub_date}}</span></div>
           <div class="rounded"></div>

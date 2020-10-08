@@ -20,10 +20,30 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static "css/util_login.css" %}">
 	<link rel="stylesheet" type="text/css" href="{% static "css/main_login.css" %}">
+	<link rel="stylesheet" href="{% static "css/nav_styles.css" %}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
+	
 <!--===============================================================================================-->
 </head>
 <body>
-	
+	<header>
+        <a class="logo" href="/"><img src="{% static "images/logo.svg" %}" alt="logo"></a>
+        <a class="cta" href="/">Home</a>
+        <nav>
+            <ul class="nav__links">
+                <li><a href="#">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+        <p class="menu cta">Menu</p>
+    </header>
+    <div id="mobile__menu" class="overlay">
+        <a class="close">&times;</a>
+        <div class="overlay__content">
+            <a href="/contact">Contact</a>
+            <a href="/about">About</a>
+        </div>
+    </div>
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
