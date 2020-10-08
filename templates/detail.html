@@ -24,17 +24,23 @@
 <body>
     <header>
         <a class="logo" href="/"><img src="{% static "images/logo.svg" %}" alt="logo"></a>
+        <a class="cta" href="/">Home</a>
         <nav>
             <ul class="nav__links">
-                <li><a href="/">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="/contact">Contact</a></li>
+                {% if not user.is_authenticated %}
+                <li><a href="/login" style="color:rgb(105, 196, 105)"><h4 style="font-weight:300;">Login</h4></a></li>
+                <li><a href="/signup" style="color:rgb(105, 196, 105)"><h4 style="font-weight:300;">Signup</h4></a></li>
+                {% endif %}
             </ul>
         </nav>
-        {% if user.profile.image %}
-        <a href="/profile"><img class="avatar" src="{{user.profile.image.url}}" alt="logo"></a>
-        {% else %}
-        <a href="/login"><img class="avatar" src="media/pics/profile.png" alt="logo"></a>
+        {% if user.is_authenticated %}
+            {% if user.profile.image %}
+            <a href="/profile"><img class="avatar" src="{{user.profile.image.url}}" alt="logo"></a>
+            {% else %}
+            <a href="/profile"><img class="avatar" src="media/pics/profile.png" alt="logo"></a>
+            {% endif %}
         {% endif %}
         <p class="menu cta">Menu</p>
     </header>
