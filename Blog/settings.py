@@ -79,7 +79,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'HOST':'/cloudsql/my-blog-website-292208:us-west2:blog-website',
-        'NAME':'Main',
+        'NAME':'main',
         'USER':'Himaloy',
         'PASSWORD': 'Ira5432@',
     }
